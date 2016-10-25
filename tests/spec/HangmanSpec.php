@@ -17,6 +17,13 @@ class HangmanSpec extends ObjectBehavior
 			$this->guess($letter);
 		}
 	}
+
+	function it_is_a_hangman_game()
+	{
+		$this->beConstructedWith('borg');
+		$this->shouldBeAnInstanceOf(Hangman::class);
+	}
+
     function it_has_the_correct_attributes()
 	{
 		$this->beConstructedWith('glorp');

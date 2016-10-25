@@ -21,13 +21,17 @@ class Hangman
         $this->word = $word;
     }
 
+	/**
+	 * Makes a guess.
+	 *
+	 * @param $letter
+	 * @return bool
+	 */
 	public function guess($letter)
 	{
 		$letter = strtolower($letter);
 
-		$this->isAValidGuess($letter);
-
-		if (!$this->valid)
+		if (!$this->isAValidGuess($letter))
 		{
 			throw new InvalidArgumentException();
 		}
@@ -96,12 +100,14 @@ class Hangman
 	{
 		if (!ctype_alpha($letter))
 		{
-			$this->valid = false;
+			return false;
 		}
 		if (strlen($letter) != 1)
 		{
-			$this->valid = false;
+			return false;
 		}
+
+		return true;
 	}
 
 	private function letterHasNotBeenGuessedYet($letter)

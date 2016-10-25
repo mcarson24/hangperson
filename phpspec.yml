@@ -4,6 +4,3 @@ suites:
     psr4_prefix: App
     src_path: app
     spec_path: tests
-
-extensions:
-  PhpSpec\Laravel\Extension\LaravelExtension: ~
