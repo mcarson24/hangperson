@@ -11,6 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('hello');
+use Illuminate\Http\Request;
+
+Route::get('/', 'GameController@new');
+
+Route::get('new', 'GameController@new');
+
+Route::get('/', function (Request $request) {
+	$value = $request->session()->get('key');
+
+    return view('hello', compact('value'));
 });
+
+Route::get('hello', 'GameController@hello');

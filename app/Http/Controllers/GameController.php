@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Hangman;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -14,4 +15,17 @@ class GameController extends Controller
 	//	Process guess; redirects to Show Game after changing state							POST /guess
 	//	Show "you win" page with button to start new game									GET /win
 	//	Show "you lose" page with button to start new game									GET /lose
+
+	protected $game;
+
+	public function __construct()
+	{
+		$this->game = session('game') ?? new Hangman('');
+	}
+
+	public function new()
+	{
+		return view('games.new');
+	}
+
 }
