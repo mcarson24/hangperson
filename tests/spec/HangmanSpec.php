@@ -29,7 +29,7 @@ class HangmanSpec extends ObjectBehavior
 		$this->beConstructedWith('glorp');
 		$this->word()->shouldReturn('glorp');
 		$this->guesses()->shouldReturn('');
-		$this->wrong_guesses()->shouldReturn('');
+		$this->wrongGuesses()->shouldReturn('');
 	}
 
 	function it_changes_the_correct_guess_list_after_a_correct_guess()
@@ -39,7 +39,7 @@ class HangmanSpec extends ObjectBehavior
 
 		$this->valid()->shouldReturn(true);
 		$this->guesses()->shouldReturn('a');
-		$this->wrong_guesses()->shouldReturn('');
+		$this->wrongGuesses()->shouldReturn('');
 	}
 
 	function it_changes_the_wrong_guess_list_after_an_incorrect_guess()
@@ -49,7 +49,7 @@ class HangmanSpec extends ObjectBehavior
 
 		$this->valid()->shouldReturn(true);
 		$this->guesses()->shouldReturn('');
-		$this->wrong_guesses()->shouldReturn('z');
+		$this->wrongGuesses()->shouldReturn('z');
 	}
 
 	function it_does_not_change_guess_list_if_the_letter_has_already_been_guessed()
@@ -60,7 +60,7 @@ class HangmanSpec extends ObjectBehavior
 		$this->guess('q');
 
 		$this->guesses()->shouldReturn('a');
-		$this->wrong_guesses()->shouldReturn('q');
+		$this->wrongGuesses()->shouldReturn('q');
 
 		$this->guess('a')->shouldReturn(false);
 		$this->guess('q')->shouldReturn(false);
@@ -76,7 +76,7 @@ class HangmanSpec extends ObjectBehavior
 		$this->guess('G');
 
 		$this->guesses()->shouldReturn('g');
-		$this->wrong_guesses()->shouldReturn('t');
+		$this->wrongGuesses()->shouldReturn('t');
 	}
 
 	function it_handles_empty_guesses()
