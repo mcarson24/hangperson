@@ -21,9 +21,9 @@ class GameController extends Controller
 		return view('games.index');
 	}
 
-	public function create()
+	public function create(Request $request)
 	{
-		$game = new Hangman();
+		$game = $request->has('word') ? new Hangman($request->get('word')) : new Hangman();
 
 		session(['game' => $game]);
 
@@ -33,6 +33,17 @@ class GameController extends Controller
 	public function show()
 	{
 		$game = session('game');
+
+		return view('games.show', compact('game'));
+	}
+
+	public function guess(Request $request)
+	{
+		$game = session('game');
+
+		$letter = $request->get('letter');
+
+		$game->guess($letter);
 
 		return view('games.show', compact('game'));
 	}

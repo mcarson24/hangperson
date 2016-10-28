@@ -20,4 +20,24 @@ class FeatureContext extends MinkContext implements Context
     public function __construct()
     {
     }
+
+	/**
+	 * @Given /^I start a new game with the word "(.*)"$/
+	 */
+	public function iStartANewGameWithTheWord($word)
+	{
+		$this->visit('new');
+		$this->fillField('word', $word);
+		$this->pressButton('newGame');
+		$this->assertPageAddress('show');
+	}
+
+	/**
+	 * @When /^I guess "(.*)"$/
+	 */
+	public function iGuess($letter)
+	{
+		$this->fillField('letter', $letter);
+		$this->pressButton('guessLetter');
+	}
 }

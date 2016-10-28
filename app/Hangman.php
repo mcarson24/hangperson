@@ -53,7 +53,6 @@ class Hangman
         return $this->word;
     }
 
-
 	/**
 	 * The guesses that are in the hidden word.
 	 *
@@ -102,6 +101,8 @@ class Hangman
 	public function wordWithGuesses()
 	{
 		$word = str_split($this->word);
+
+		$this->displayWord = '';
 
 		foreach	($word as $letter)
 		{

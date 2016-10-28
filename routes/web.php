@@ -17,6 +17,8 @@ Route::get('/', 'GameController@index');
 
 Route::get('new', 'GameController@index');
 
+Route::post('guess', 'GameController@guess');
+
 Route::post('create', 'GameController@create');
 
 Route::get('show', 'GameController@show');
