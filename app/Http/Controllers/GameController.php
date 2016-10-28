@@ -16,18 +16,24 @@ class GameController extends Controller
 	//	Show "you win" page with button to start new game									GET /win
 	//	Show "you lose" page with button to start new game									GET /lose
 
-	protected $game;
-
-	public function __construct()
+	public function index()
 	{
-		$this->game = new Hangman();
+		return view('games.index');
 	}
 
-	public function new()
+	public function create()
 	{
-		$game = $this->game;
+		$game = new Hangman();
 
-		return view('games.new', compact('game'));
+		session(['game' => $game]);
+
+		return redirect('show');
 	}
 
+	public function show()
+	{
+		$game = session('game');
+
+		return view('games.show', compact('game'));
+	}
 }

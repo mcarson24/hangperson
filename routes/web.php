@@ -13,14 +13,10 @@
 
 use Illuminate\Http\Request;
 
-Route::get('/', 'GameController@new');
+Route::get('/', 'GameController@index');
 
-Route::get('new', 'GameController@new');
+Route::get('new', 'GameController@index');
 
-Route::get('/', function (Request $request) {
-	$value = $request->session()->get('key');
+Route::post('create', 'GameController@create');
 
-    return view('hello', compact('value'));
-});
-
-Route::get('hello', 'GameController@hello');
+Route::get('show', 'GameController@show');

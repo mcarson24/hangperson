@@ -145,7 +145,7 @@ class Hangman
 		$word = substr($randomWordSite, $beginningOfWord, ($endOfWord - $beginningOfWord));
 
 		// If the random word contains a hyphen get a different one.
-		if (strpos($word, '-'))
+		if (preg_match("/[-']/i", $word))
 		{
 			return $this->createRandomWord();
 		}
