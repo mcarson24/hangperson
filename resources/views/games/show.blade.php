@@ -8,6 +8,8 @@
 
     <h2><span class="word">{{ $game->wordWithGuesses() }}</span></h2>
 
+    <h2><span class="guesses">{{ $game->wrongGuesses() }}</span></h2>
+
     <hr>
 
     @if($errors->any())

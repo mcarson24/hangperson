@@ -40,4 +40,39 @@ class FeatureContext extends MinkContext implements Context
 		$this->fillField('letter', $letter);
 		$this->pressButton('guessLetter');
 	}
+
+	/**
+	 * @When /^I make the following guesses "(.*)"$/
+	 *
+	 * @param $guesses
+	 */
+	public function iMakeTheFollowingGuesses($guesses)
+	{
+		$guesses = explode(',', $guesses);
+
+		foreach	($guesses as $guess)
+		{
+			$this->visit('show');
+			$this->iGuess($guess);
+		}
+	}
+
+	/**
+	 * @Then /^The word should read "(.*)"$/
+	 */
+	public function theWordShouldRead($expectedWord)
+	{
+		$this->visit('show');
+
+		$this->assertPageContainsText($expectedWord);
+	}
+
+	/**
+	 * @Then /^The wrong guesses should include "(.*)"$/
+	 */
+	public function theWrongGuessesShouldInclude($wrongGuesses)
+	{
+		$this->visit('show');
+		$this->assertElementContainsText('span.guesses', $wrongGuesses);
+	}
 }
