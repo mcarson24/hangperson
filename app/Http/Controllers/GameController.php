@@ -20,12 +20,14 @@ class GameController extends Controller
 
 	public function __construct()
 	{
-		$this->game = session('game') ?? new Hangman('');
+		$this->game = new Hangman();
 	}
 
 	public function new()
 	{
-		return view('games.new');
+		$game = $this->game;
+
+		return view('games.new', compact('game'));
 	}
 
 }

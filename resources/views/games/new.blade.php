@@ -4,4 +4,6 @@
 
     <h1>New Game</h1>
 
+    <p>{{ $game->word() }}</p>
+
 @endsection

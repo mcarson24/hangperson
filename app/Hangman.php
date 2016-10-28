@@ -16,9 +16,9 @@ class Hangman
 
 	protected $displayWord = '';
 
-	public function __construct($word)
+	public function __construct($word = null)
     {
-        $this->word = $word;
+        $this->word = $word ?? $this->createRandomWord();
     }
 
 	/**
@@ -43,7 +43,6 @@ class Hangman
 		return false;
 	}
 
-
 	/**
 	 * The word to guess.
 	 *
@@ -53,6 +52,7 @@ class Hangman
     {
         return $this->word;
     }
+
 
 	/**
 	 * The guesses that are in the hidden word.
@@ -125,6 +125,32 @@ class Hangman
 	public function valid()
 	{
 		return $this->valid;
+	}
+
+	/**
+	 * Fetches a random word from wordnik.com
+	 *
+	 * @return string
+	 */
+	private function createRandomWord()
+	{
+		$randomWordSite = file_get_contents('https://wordnik.com/words?random=true');
+
+		// The beginning of the random word.
+		$beginningOfWord = strpos($randomWordSite, "var word = '") + strlen("var word = '");
+
+		// The end of the random word.
+		$endOfWord = strpos($randomWordSite, "';\nvar random");
+
+		$word = substr($randomWordSite, $beginningOfWord, ($endOfWord - $beginningOfWord));
+
+		// If the random word contains a hyphen get a different one.
+		if (strpos($word, '-'))
+		{
+			return $this->createRandomWord();
+		}
+
+		return $word;
 	}
 
 	/**
