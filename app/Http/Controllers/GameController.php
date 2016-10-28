@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Hangman;
+use App\Http\Requests\GuessFormRequest;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -37,7 +38,11 @@ class GameController extends Controller
 		return view('games.show', compact('game'));
 	}
 
-	public function guess(Request $request)
+	/**
+	 * @param GuessFormRequest $request
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+	public function guess(GuessFormRequest $request)
 	{
 		$game = session('game');
 
