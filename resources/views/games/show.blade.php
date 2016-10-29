@@ -10,6 +10,8 @@
 
     <h2><span class="guesses">{{ $game->wrongGuesses() }}</span></h2>
 
+    <h4>{{ $game->gameStatus() }}</h4>
+
     <hr>
 
     @if($errors->any())

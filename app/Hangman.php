@@ -14,7 +14,7 @@ class Hangman
 
 	protected $valid = true;
 
-	protected $displayWord = '';
+	public $displayWord = '';
 
 	public function __construct($word = null)
     {
@@ -80,6 +80,8 @@ class Hangman
 	 */
 	public function gameStatus()
 	{
+		$this->wordWithGuesses();
+
 		if (strpos($this->displayWord, '-') === FALSE)
 		{
 			return 'win';
@@ -185,8 +187,7 @@ class Hangman
 	}
 
 	/**
-	 * Takes a valid guess and stores it in the guesses string or
-	 * it stores it in the incorrect guesses string.
+	 * Takes a valid guess and stores it in either the guesses or incorrect guesses string.
 	 *
 	 * @param $letter
 	 * @return string

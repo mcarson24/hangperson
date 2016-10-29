@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class GameController extends Controller
-{
-    //  Show game state, allow player to enter guess; may redirect to Win or Lose			GET /show
+class GameController extends Controller {
+
+	//  Show game state, allow player to enter guess; may redirect to Win or Lose			GET /show
 	//	Display form that can generate `POST /create`										GET /new
 	//	Start new game; redirects to Show Game after changing state							POST /create
 	//	Process guess; redirects to Show Game after changing state							POST /guess
@@ -59,6 +59,16 @@ class GameController extends Controller
 		$letter = $request->get('letter');
 
 		$game->guess($letter);
+
+		if ($game->gameStatus() == 'win')
+		{
+			return redirect('win');
+		}
+
+		if ($game->gameStatus() == 'loss')
+		{
+			return redirect('loss');
+		}
 
 		return view('games.show', compact('game'));
 	}

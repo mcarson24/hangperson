@@ -22,3 +22,7 @@ Route::post('guess', 'GameController@guess');
 Route::post('create', 'GameController@create');
 
 Route::get('show', 'GameController@show');
+
+Route::get('win', 'ResultsController@win');
+
+Route::get('loss', 'ResultsController@loss');
