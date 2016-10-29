@@ -23,6 +23,7 @@ class FeatureContext extends MinkContext implements Context
 
 	/**
 	 * @Given /^I start a new game with the word "(.*)"$/
+	 * @param $word
 	 */
 	public function iStartANewGameWithTheWord($word)
 	{
@@ -34,6 +35,7 @@ class FeatureContext extends MinkContext implements Context
 
 	/**
 	 * @When /^I guess "(.*)"$/
+	 * @param $letter
 	 */
 	public function iGuess($letter)
 	{
@@ -59,6 +61,7 @@ class FeatureContext extends MinkContext implements Context
 
 	/**
 	 * @Then /^The word should read "(.*)"$/
+	 * @param $expectedWord
 	 */
 	public function theWordShouldRead($expectedWord)
 	{
@@ -69,6 +72,7 @@ class FeatureContext extends MinkContext implements Context
 
 	/**
 	 * @Then /^The wrong guesses should include "(.*)"$/
+	 * @param $wrongGuesses
 	 */
 	public function theWrongGuessesShouldInclude($wrongGuesses)
 	{

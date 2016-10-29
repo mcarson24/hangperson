@@ -17,11 +17,18 @@ class GameController extends Controller
 	//	Show "you win" page with button to start new game									GET /win
 	//	Show "you lose" page with button to start new game									GET /lose
 
+	/**
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
 	public function index()
 	{
 		return view('games.index');
 	}
 
+	/**
+	 * @param Request $request
+	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+	 */
 	public function create(Request $request)
 	{
 		$game = $request->has('word') ? new Hangman($request->get('word')) : new Hangman();
@@ -31,6 +38,9 @@ class GameController extends Controller
 		return redirect('show');
 	}
 
+	/**
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
 	public function show()
 	{
 		$game = session('game');

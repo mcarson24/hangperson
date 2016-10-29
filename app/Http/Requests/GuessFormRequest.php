@@ -28,7 +28,12 @@ class GuessFormRequest extends FormRequest
         ];
     }
 
-    public function messages()
+	/**
+	 * Custom messages for validation rules of the request.
+	 *
+	 * @return array
+	 */
+	public function messages()
 	{
 		return [
 			'letter.size' => 'Sorry, only one letter at a time please.'
