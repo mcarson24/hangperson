@@ -13,3 +13,9 @@ Scenario:
     Then I make the following guesses "i,s,u,c,k,h,a,r"
     Then I guess "d"
     Then I should see "Sorry, you lose!"
+
+Scenario:
+    Given I start a new game with the word "apple"
+    When I go to "win"
+    Then I should be on "show"
+    Then I should not see "win"

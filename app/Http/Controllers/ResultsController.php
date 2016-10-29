@@ -8,7 +8,12 @@ use App\Http\Requests;
 
 class ResultsController extends Controller
 {
-    public function win()
+	public function __construct()
+	{
+		$this->middleware('redirectIfGameNotOver');
+	}
+
+	public function win()
 	{
 		return view('games.win');
 	}

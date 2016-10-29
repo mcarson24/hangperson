@@ -4,8 +4,6 @@
 
     <h1>Guess A Letter</h1>
 
-    <h2>{{ $game->word() }}</h2>
-
     <h2><span class="word">{{ $game->wordWithGuesses() }}</span></h2>
 
     <h2><span class="guesses">{{ $game->wrongGuesses() }}</span></h2>
