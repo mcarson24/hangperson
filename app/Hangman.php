@@ -14,7 +14,7 @@ class Hangman
 
 	protected $valid = true;
 
-	public $displayWord = '';
+	protected $displayWord = '';
 
 	public function __construct($word = null)
     {
