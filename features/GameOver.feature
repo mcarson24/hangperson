@@ -19,3 +19,6 @@ Scenario:
     When I go to "win"
     Then I should be on "show"
     Then I should not see "win"
+    Then I go to "loss"
+    Then I should be on "show"
+    Then I should not see "lose"
