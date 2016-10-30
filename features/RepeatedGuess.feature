@@ -21,3 +21,9 @@ Scenario: guessing an incorrect letter does not count towards guesses
   Given I start a new game with the word "snake"
   Then I guess "z" 30 times in a row
   Then I am on "show"
+
+Scenario: Guess a letter multiple times in uppercase
+  Given I start a new game with the word "sauce"
+  Then I guess "t"
+  When I guess "T"
+  And I should see "You have already guessed that letter"

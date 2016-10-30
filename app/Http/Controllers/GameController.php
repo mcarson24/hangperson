@@ -56,7 +56,7 @@ class GameController extends Controller {
 	{
 		$game = session('game');
 
-		$letter = $request->get('letter');
+		$letter = strtolower($request->get('letter'));
 
 		if ($game->letterHasAlreadyBeenGuessed($letter))
 		{
