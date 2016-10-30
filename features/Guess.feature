@@ -23,3 +23,8 @@ Scenario: Multiple correct and incorrect guesses
   When I make the following guesses "a,z,x,o"
   Then The word should read "-oo-a-"
   And The wrong guesses should include "zx"
+
+Scenario: Correctly solve word with an uppercase letter in it
+  Given I start a new game with the word "Hangman"
+  When I make the following guesses "h,a,n,g,m,n"
+  Then I should be on "win"

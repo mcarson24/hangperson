@@ -18,7 +18,7 @@ class Hangman
 
 	public function __construct($word = null)
     {
-        $this->word = $word ?? $this->createRandomWord();
+		$this->word = $word ? strtolower($word) : $this->createRandomWord();
     }
 
 	/**
