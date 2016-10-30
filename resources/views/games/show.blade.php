@@ -25,7 +25,7 @@
 
 
     <form action="{{ action('GameController@guess') }}" method="POST">
-        <input type="text" id="letter" name="letter">
+        <input type="text" id="letter" name="letter" autofocus>
         {{ csrf_field() }}
         <button type="submit" id="guessLetter">Guess Letter</button>
     </form>
