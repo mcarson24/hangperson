@@ -15,11 +15,15 @@ class ResultsController extends Controller
 
 	public function win()
 	{
-		return view('games.win');
+		$game = session('game');
+
+		return view('games.win', compact('game'));
 	}
 
 	public function loss()
 	{
-		return view('games.loss');
+		$game = session('game');
+
+		return view('games.loss', compact('game'));
 	}
 }
