@@ -131,6 +131,17 @@ class Hangman
 	}
 
 	/**
+	 * Determine if the letter has already been guessed.
+	 *
+	 * @param $letter
+	 * @return bool
+	 */
+	public function letterHasAlreadyBeenGuessed($letter)
+	{
+		return ! $this->letterHasNotBeenGuessedYet($letter);
+	}
+
+	/**
 	 * Fetches a random word from wordnik.com
 	 *
 	 * @return string

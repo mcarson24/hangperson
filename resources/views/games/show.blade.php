@@ -8,7 +8,7 @@
 
     <h2><span class="guesses">{{ $game->wrongGuesses() }}</span></h2>
 
-    <h4>{{ $game->gameStatus() }}</h4>
+    <h4 class="{{ $message ?? 'hide' }}">You have already guessed that letter.</h4>
 
     <hr>
 

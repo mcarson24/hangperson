@@ -58,6 +58,11 @@ class GameController extends Controller {
 
 		$letter = $request->get('letter');
 
+		if ($game->letterHasAlreadyBeenGuessed($letter))
+		{
+			$message = 'show';
+		}
+
 		$game->guess($letter);
 
 		if ($game->gameStatus() == 'win')
@@ -70,6 +75,7 @@ class GameController extends Controller {
 			return redirect('loss');
 		}
 
-		return view('games.show', compact('game'));
+
+		return view('games.show', compact('game', 'message'));
 	}
 }

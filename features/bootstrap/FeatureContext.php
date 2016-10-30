@@ -44,6 +44,14 @@ class FeatureContext extends MinkContext implements Context
 	}
 
 	/**
+	 * @Then I guess :arg1 again
+	 */
+	public function iGuessAgain($letter)
+	{
+		$this->iGuess($letter);
+	}
+
+	/**
 	 * @When /^I make the following guesses "(.*)"$/
 	 *
 	 * @param $guesses
@@ -60,7 +68,22 @@ class FeatureContext extends MinkContext implements Context
 	}
 
 	/**
+	 * @Then I guess :arg1 :arg2 times in a row
+	 *
+	 * @param $letter
+	 * @param $amount
+	 */
+	public function iGuessTimesInARow($letter, $amount)
+	{
+		for ($i = 0; $i < $amount; $i++)
+		{
+			$this->iGuess($letter);
+		}
+	}
+
+	/**
 	 * @Then /^The word should read "(.*)"$/
+	 * 
 	 * @param $expectedWord
 	 */
 	public function theWordShouldRead($expectedWord)

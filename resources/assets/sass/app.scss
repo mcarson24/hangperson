@@ -7,3 +7,17 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+body {
+  padding: 10px;
+  margin: 10px;
+}
+
+h4 {
+  .hide {
+    display: none;
+  }
+  .show {
+    color: red;
+  }
+}
