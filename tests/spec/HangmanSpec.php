@@ -101,12 +101,6 @@ class HangmanSpec extends ObjectBehavior
 	{
 		$this->beConstructedWith('banana');
 
-		$testCases = [
-			'bn' => 'b-n-n-',
-			'def' => '------',
-			'ban' => 'banana',
-		];
-
 		$this->guessSeveralLetters('bn');
 		$this->wordWithGuesses()->shouldreturn('b-n-n-');
 	}
