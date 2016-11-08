@@ -4,3 +4,8 @@ suites:
     psr4_prefix: App
     src_path: app
     spec_path: tests
+  word_suite:
+      namespace: App
+      psr4_prefix: App
+      src_path: app
+      spec_path: tests

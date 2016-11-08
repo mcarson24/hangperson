@@ -148,15 +148,7 @@ class Hangman
 	 */
 	private function createRandomWord()
 	{
-		$randomWordSite = file_get_contents('https://wordnik.com/words?random=true');
-
-		// The beginning of the random word.
-		$beginningOfWord = strpos($randomWordSite, "var word = '") + strlen("var word = '");
-
-		// The end of the random word.
-		$endOfWord = strpos($randomWordSite, "';\nvar random");
-
-		$word = substr($randomWordSite, $beginningOfWord, ($endOfWord - $beginningOfWord));
+		$word = (new WordGenerator())->generateWord();
 
 		// If the random word contains a hyphen get a different one.
 		if (preg_match("/[-']/i", $word))
